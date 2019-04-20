@@ -1,0 +1,69 @@
+{ 
+  nodes: [
+    {
+  id: 'c89b84ee-5361-11e9-b7bd-54ab3aad9f99',
+  value: 'age',
+    },
+    {
+    id: 'c8a21022-5361-11e9-9be3-54ab3aad9f99',
+    value: 'yes',
+    is_leaf: true
+    },
+    {
+id: 'c8a320cc-5361-11e9-ae83-54ab3aad9f99',
+value: 'credit_rating',
+    },
+    {
+id: 'c8a6c7d0-5361-11e9-9f84-54ab3aad9f99',
+value: 'no',
+is_leaf: true
+    },
+    {
+id: 'c8a7d886-5361-11e9-b6a4-54ab3aad9f99',
+value: 'yes',
+is_leaf: true
+    },
+    {
+    id: 'c8a89b46-5361-11e9-b2f4-54ab3aad9f99',
+    value: 'student',
+    },
+    {
+        id: 'c8aba680-5361-11e9-b331-54ab3aad9f99',
+        value: 'no',
+        is_leaf: true
+    },
+    {
+        id: 'c8acde22-5361-11e9-afcb-54ab3aad9f99',
+        value: 'yes',
+        is_leaf: true
+    }
+  ],
+  edges: [{id: '72dd9428-536d-11e9-a814-54ab3aad9f99:72e3359a-536d-11e9-b397-54ab3aad9f99',
+    source: '72dd9428-536d-11e9-a814-54ab3aad9f99',
+    target: '72e3359a-536d-11e9-b397-54ab3aad9f99',
+    value: 'middle_aged'},
+   {id: '72dd9428-536d-11e9-a814-54ab3aad9f99:72e41f46-536d-11e9-8f3a-54ab3aad9f99',
+    source: '72dd9428-536d-11e9-a814-54ab3aad9f99',
+    target: '72e41f46-536d-11e9-8f3a-54ab3aad9f99',
+    value: 'senior'},
+   {id: '72dd9428-536d-11e9-a814-54ab3aad9f99:72e8622c-536d-11e9-918b-54ab3aad9f99',
+    source: '72dd9428-536d-11e9-a814-54ab3aad9f99',
+    target: '72e8622c-536d-11e9-918b-54ab3aad9f99',
+    value: 'youth'},
+   {id: '72e41f46-536d-11e9-8f3a-54ab3aad9f99:72e7038c-536d-11e9-abd9-54ab3aad9f99',
+    source: '72e41f46-536d-11e9-8f3a-54ab3aad9f99',
+    target: '72e7038c-536d-11e9-abd9-54ab3aad9f99',
+    value: 'excellent'},
+   {id: '72e41f46-536d-11e9-8f3a-54ab3aad9f99:72e7c65a-536d-11e9-b2cf-54ab3aad9f99',
+    source: '72e41f46-536d-11e9-8f3a-54ab3aad9f99',
+    target: '72e7c65a-536d-11e9-b2cf-54ab3aad9f99',
+    value: 'fair'},
+   {id: '72e8622c-536d-11e9-918b-54ab3aad9f99:72eaf874-536d-11e9-84e0-54ab3aad9f99',
+    source: '72e8622c-536d-11e9-918b-54ab3aad9f99',
+    target: '72eaf874-536d-11e9-84e0-54ab3aad9f99',
+    value: 'no'},
+   {id: '72e8622c-536d-11e9-918b-54ab3aad9f99:72ec7e0c-536d-11e9-b436-54ab3aad9f99',
+    source: '72e8622c-536d-11e9-918b-54ab3aad9f99',
+    target: '72ec7e0c-536d-11e9-b436-54ab3aad9f99',
+    value: 'yes'}]
+}

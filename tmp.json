@@ -1,0 +1,82 @@
+data = {
+  nodes: {
+    id: 'c89b84ee-5361-11e9-b7bd-54ab3aad9f99',
+    value: 'age',
+    children: [
+    {
+      id: 'c8a21022-5361-11e9-9be3-54ab3aad9f99',
+      value: 'yes',
+      is_leaf: True
+    },
+    {
+      id: 'c8a320cc-5361-11e9-ae83-54ab3aad9f99',
+      value: 'credit_rating',
+      children: [
+        {
+          id: 'c8a6c7d0-5361-11e9-9f84-54ab3aad9f99',
+          value: 'no',
+          is_leaf: True
+        },
+        {
+          id: 'c8a7d886-5361-11e9-b6a4-54ab3aad9f99',
+          value: 'yes',
+          is_leaf: True
+        }
+      ]
+    },
+    {
+      id: 'c8a89b46-5361-11e9-b2f4-54ab3aad9f99',
+      value: 'student',
+      children: [
+        {
+          id: 'c8aba680-5361-11e9-b331-54ab3aad9f99',
+          value: 'no',
+          is_leaf: True
+        },
+        {
+          id: 'c8acde22-5361-11e9-afcb-54ab3aad9f99',
+          value: 'yes',
+          is_leaf: True
+        }
+      ]
+    }
+  ]
+},
+edges: [
+  {
+    source: 'c89b84ee-5361-11e9-b7bd-54ab3aad9f99',
+    target: 'c8a21022-5361-11e9-9be3-54ab3aad9f99',
+    value: 'middle_aged'
+  },
+  {
+    source: 'c89b84ee-5361-11e9-b7bd-54ab3aad9f99',
+    target: 'c8a320cc-5361-11e9-ae83-54ab3aad9f99',
+    value: 'senior'
+  },
+  {
+    source: 'c89b84ee-5361-11e9-b7bd-54ab3aad9f99',
+    target: 'c8a89b46-5361-11e9-b2f4-54ab3aad9f99',
+    value: 'youth'
+  },
+  {
+    source: 'c8a320cc-5361-11e9-ae83-54ab3aad9f99',
+    target: 'c8a6c7d0-5361-11e9-9f84-54ab3aad9f99',
+    value: 'excellent'
+  },
+  {
+    source: 'c8a320cc-5361-11e9-ae83-54ab3aad9f99',
+    target: 'c8a7d886-5361-11e9-b6a4-54ab3aad9f99',
+    value: 'fair'
+  },
+  {
+    source: 'c8a89b46-5361-11e9-b2f4-54ab3aad9f99',
+    target: 'c8aba680-5361-11e9-b331-54ab3aad9f99',
+    value: 'no'
+  },
+  {
+    source: 'c8a89b46-5361-11e9-b2f4-54ab3aad9f99',
+    target: 'c8acde22-5361-11e9-afcb-54ab3aad9f99',
+    value: 'yes'
+  }
+]
+}
