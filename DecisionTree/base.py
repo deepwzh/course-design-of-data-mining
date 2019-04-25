@@ -37,7 +37,7 @@ class Node:
     def get_child_by_value(self, value):
         edges = self._tree.edges[self.id]
         for edge in edges:
-            if edge.value == value:
+            if value in edge.value:
                 return edge.target
         return None
 
@@ -129,7 +129,9 @@ class DecisionTree:
         return True
 
     def get_part(self, D, splitting_criterion):
-        return D.groupby(splitting_criterion)
+        attribute = splitting_criterion[0]
+        parts = splitting_criterion[1]
+        return [(part, D[D[attribute].isin(part)]) for part in parts] 
 
     def get_majority_class(self, D):
         return str(D.groupby(self.get_class_attribute()).size().idxmax())
@@ -146,17 +148,19 @@ class DecisionTree:
             N.value = str(C)
             print(type(N.value), N.value)
             return N  # 返回N作为叶节点，类C标记
-        if not attribute_list:
+        if len(attribute_list) == 0:
             N.is_leaf = True
             N.value = str(self.get_majority_class(D))
             print(type(N.value), N.value)
             return N  # 返回叶节点，多数类
         splitting_criterion = self.attribute_selection_method(D, attribute_list)
-        N.value = str(splitting_criterion)
+        N.value = str(splitting_criterion[0])
 
         # print(splitting_criterion)
         if self.is_discrete(splitting_criterion):
-            attribute_list.remove(splitting_criterion)
+            #print("Hello World")
+            attribute_list.drop(attribute_list[attribute_list == splitting_criterion[0]].index, inplace=True)
+            #attribute_list.index = range(len(attribute_list))
         # print(attribute_list)
         for (label, Dj) in self.get_part(D, splitting_criterion):
             if Dj.empty:
@@ -168,7 +172,7 @@ class DecisionTree:
         return N
 
     def build(self):
-        self._generate_decision_tree(self.df, list(self.df.columns[1:-1]))
+        self._generate_decision_tree(self.df, pd.Series(self.df.columns[1:-1]))
 
     def test_one_record(self, record):
         tree = self.tree

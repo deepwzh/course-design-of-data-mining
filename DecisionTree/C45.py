@@ -54,8 +54,9 @@ class C45Tree(DecisionTree):
             split_info = getSplitInfoA(D, attribute)
             gain_rate = gain / split_info
             candidate_splitting_criterion.append((gain_rate, attribute))
-            print(gain, attribute)
-        splitting_criterion = max(candidate_splitting_criterion, key=lambda item: item[0])[1]
+            print(gain_rate, attribute)
+        attribute = max(candidate_splitting_criterion, key=lambda item: item[0])[1]
+        splitting_criterion = (attribute, list([item] for item in D[attribute].drop_duplicates()))
         print("chose attribute", splitting_criterion)
         return splitting_criterion
 
