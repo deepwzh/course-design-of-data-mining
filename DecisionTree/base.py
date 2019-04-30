@@ -26,6 +26,19 @@ class Node:
         self.value = None
         self._tree = tree
         self.id = str(uuid.uuid1())
+        # 设置关联的子数据集
+        self.D = None
+
+    def get_tree(self):
+        return self._tree
+
+    def cut_up_childs(self):
+        self._tree.edges[self.id] = []
+
+    def get_class_description(self, class_field):
+        data = self.D.groupby(class_field)
+        res = [(item[0], len(item[1])) for item in data]
+        return res
 
     def has_child(self):
         return self.id in self._tree.edges
@@ -35,12 +48,23 @@ class Node:
         return str(u)
 
     def get_child_by_value(self, value):
+        """
+        返回具有指定边值的子节点
+        """
         edges = self._tree.edges[self.id]
         for edge in edges:
             if value in edge.value:
                 return edge.target
         return None
 
+    def get_all_child(self):
+        """
+        返回该节点的所有子节点
+        """
+        if self.id not in self._tree.edges:
+            return []
+        edges = self._tree.edges[self.id]
+        return [ edge.target for edge in edges]
 
 class Tree:
     def __init__(self):
@@ -54,7 +78,7 @@ class Tree:
 
     def get_root(self):
         return self.nodes[self.root_id]
-
+    
     def _get_child_node_json_data(self, node_id):
         if node_id not in self.edges:
             return {
@@ -139,6 +163,7 @@ class DecisionTree:
     def _generate_decision_tree(self, D, attribute_list):
         tree = self.tree
         N = tree.create_node()
+        N.D = D
         tree.add_node(N)
         is_same_class, C = self.is_both_same_class(D)
         print(attribute_list)
@@ -164,6 +189,7 @@ class DecisionTree:
         # print(attribute_list)
         for (label, Dj) in self.get_part(D, splitting_criterion):
             if Dj.empty:
+                print("Empty")
                 value = self.get_majority_class(D)  # 为啥会是空？？？？
             else:
                 child_N = self._generate_decision_tree(Dj, attribute_list)
