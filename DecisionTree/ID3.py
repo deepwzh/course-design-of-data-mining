@@ -1,4 +1,4 @@
-from base import DecisionTree
+from .base import DecisionTree
 import math
 
 class ID3Tree(DecisionTree):

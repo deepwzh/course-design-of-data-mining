@@ -53,7 +53,7 @@ class Node:
         """
         edges = self._tree.edges[self.id]
         for edge in edges:
-            if value in edge.value:
+            if str(value) in [str(s) for s in edge.value]:
                 return edge.target
         return None
 
@@ -134,10 +134,23 @@ class DecisionTree:
         self.df = pd.read_csv(filename)
 
     def load_data_set(self, data):
-        self.df = None
+        self.df = data
+
+    def set_class_attribute(self, index):
+        """
+        设置用于分类的属性字段
+        : index 字段序号
+        """
+        self._class_attribute = index
 
     def get_class_attribute(self):
-        return self.df.columns[-1]
+        """
+        获取用于分类属性字段
+        """
+        if hasattr(self, '_class_attribute'):
+            return self.df.columns[self._class_attribute]
+        else:
+            return self.df.columns[-1]
 
     def get_json_result(self):
         return self.tree.get_json_data()
@@ -198,7 +211,12 @@ class DecisionTree:
         return N
 
     def build(self):
-        self._generate_decision_tree(self.df, pd.Series(self.df.columns[1:-1]))
+        class_attribute = self.get_class_attribute()
+        attrs = []
+        for attr in self.df.columns:
+            if attr != class_attribute:
+                attrs.append(attr)
+        self._generate_decision_tree(self.df, pd.Series(attrs))
 
     def test_one_record(self, record):
         tree = self.tree
@@ -206,12 +224,20 @@ class DecisionTree:
         while node.has_child():
             value = record[node.value]
             node = node.get_child_by_value(value)
+            if node is None:
+                # 没有找到
+                return "null"
         return node.value
 
     def test(self, test_records):
         res = []
+        # precision = 0
+        # recall = 0
         for record in test_records:
             series = pd.Series(record, index=self.df.columns)
             value = self.test_one_record(series)
-            res.append(value)
+            if value == series[self.get_class_attribute()]:
+                res.append((1, value))
+            else:
+                res.append((0, value))
         return res
