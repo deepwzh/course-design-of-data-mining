@@ -1,0 +1,76 @@
+POST http://127.0.0.1:5000/api/algo/id3
+Content-Type: application/json
+
+{
+  "data_type": "TEXT",
+  "training_data": "",
+  "test_data": ""
+}
+
+<> 2019-04-04T112935.500.html
+
+###
+
+POST http://127.0.0.1:5000/api/algo/id3
+Content-Type: application/json
+
+{
+  "data_type": "TEXT",
+  "training_data": "",
+  "test_data": "",
+}
+
+<> 2019-04-04T112921.400.html
+
+###
+
+POST http://127.0.0.1:5000/api/algo/id3
+Content-Type: application/json
+
+{
+  "data_type": "TEXT",
+  "training_data": "",
+  "test_data": "",
+}
+
+<> 2019-04-04T112623.500.html
+
+###
+
+POST http://127.0.0.1:5000/api/algo/id3
+Content-Type: application/json
+
+{
+  "data_type": "TEXT",
+  "training_data": "",
+  "test_data": "",
+}
+
+<> 2019-04-04T112525.500.html
+
+###
+
+POST http://127.0.0.1:5000/api/algo/id3
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-04-04T103752.200.html
+
+###
+
+POST http://127.0.0.1:5000/api/algo/id3
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+<> 2019-04-04T103630.500.html
+
+###
+
