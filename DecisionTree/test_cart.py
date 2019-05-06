@@ -1,6 +1,6 @@
 
-from CART import CARTree
-from utils import load_csv_data_set, divide_dataset, shuffle_data_set
+from .CART import CARTree
+from .utils import load_csv_data_set, divide_dataset, shuffle_data_set
 import unittest
 
 
@@ -27,7 +27,9 @@ class TestCARTDict(unittest.TestCase):
         self.decision_tree.load_data_set(training_data)
         # self.decision_tree.set_class_attribute(0)
         self.decision_tree.build()
-        print(test_data.values.tolist())
+        res = self.decision_tree.test(test_data.values.tolist())
+        print("剪枝前准确率:", sum([item[0] for item in res]) / len(res))
+        self.decision_tree.pruning_tree()
         output = self.decision_tree.get_json_result()
         with open("TMP.txt", 'w') as f:
             import json
@@ -35,7 +37,7 @@ class TestCARTDict(unittest.TestCase):
             # test_data
         res = self.decision_tree.test(test_data.values.tolist())
         
-        print("准确率:", sum([item[0] for item in res]) / len(res))
+        print("剪枝后准确率:", sum([item[0] for item in res]) / len(res))
     # def test_record(self):
     #     res = self.decision_tree.test([[14, 'senior', 'medium', 'no', 'excellent', 'no']])
     #     self.assertEqual(res, ["no"])

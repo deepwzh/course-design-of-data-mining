@@ -33,7 +33,7 @@ class Node:
         return self._tree
 
     def cut_up_childs(self):
-        self._tree.edges[self.id] = []
+        del self._tree.edges[self.id]
 
     def get_class_description(self, class_field):
         data = self.D.groupby(class_field)

@@ -1,6 +1,4 @@
-from ID3 import ID3Tree
 from C45 import C45Tree
-from CART import CARTree
 from utils import load_csv_data_set, divide_dataset, shuffle_data_set
 import unittest
 

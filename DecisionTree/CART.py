@@ -1,5 +1,5 @@
-from base import DecisionTree
-from utils import get_split_choice
+from .base import DecisionTree
+from .utils import get_split_choice
 import math
 
 class CARTree(DecisionTree):
@@ -76,7 +76,6 @@ class CARTree(DecisionTree):
             node._child_num = 0
 
     def pruning_tree(self):
-        
         queue = []
         self.get_surface_err_gains(self.get_class_attribute(), len(self.df), self.tree.get_root(), queue)
         pruned_node = max(queue, key=lambda x: x[1])[0]
