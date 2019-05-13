@@ -8,5 +8,7 @@
   ],
   "python.unitTest.pyTestEnabled": false,
   "python.unitTest.nosetestsEnabled": false,
-  "python.unitTest.unittestEnabled": true
+  "python.unitTest.unittestEnabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.pythonPath": "C:\\Users\\wzh\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
 }
